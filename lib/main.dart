@@ -1,4 +1,4 @@
-import 'package:appointment/features/onboarding/on_boarding.dart';
+import 'package:appointment/features/sign_in/ui/sign_in.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,6 +10,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Scaffold(body: OnBoarding()));
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Scaffold(body: SignInPage()));
   }
 }
