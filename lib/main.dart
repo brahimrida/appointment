@@ -1,6 +1,5 @@
+import 'package:appointment/features/onboarding/on_boarding.dart';
 import 'package:flutter/material.dart';
-
-import 'features/splash/splash.dart';
 
 void main() {
   runApp(const MainApp());
@@ -11,6 +10,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(debugShowCheckedModeBanner: false, home: Scaffold(body: Splash()));
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Scaffold(body: OnBoarding()));
   }
 }
