@@ -1,9 +1,13 @@
+import 'package:appointment/core/widgets/auth_separator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/theming/colors.dart';
+import '../../../core/theming/styles.dart';
 import '../../../core/widgets/app_button.dart';
 import '../../../core/widgets/auth_buttons.dart';
 import '../../../core/widgets/form_field.dart';
+import '../../../core/widgets/sign_up_and_register_bottom_section.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -14,10 +18,9 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   bool _rememberMe = false;
+
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -25,37 +28,24 @@ class _SignInPageState extends State<SignInPage> {
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: SingleChildScrollView(
             child: Column(
-              spacing: 10,
+              spacing: 9.h,
               children: [
-                Vertical(80),
-                Row(
-                  children: [
-                    Text(
-                      "Welcome Back",
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.primary,
-                        fontFamily: "Inter",
-                      ),
-                    ),
-                  ],
-                ),
+                Vertical(80.h),
+                Row(children: [Text("Welcome Back", style: TextStyles.blueHeading)]),
                 Text(
                   "We're excited to have you back, can't wait to see what you've been up to since you last logged in.",
-                  style: TextStyle(color: AppColors.secondary, fontSize: 16, fontFamily: "Inter"),
+                  style: TextStyles.regular14,
                 ),
-                Vertical(18),
-                FormTextField(label: "Email", type: FormFieldType.email),
-                Vertical(2),
-                FormTextField(label: "Password", type: FormFieldType.password),
-                Vertical(2),
+                Vertical(18.h),
+                FormTextField(label: "Email", type: TextInputType.emailAddress),
+                Vertical(2.h),
+                FormTextField(label: "Password", type: TextInputType.text, confidential: true),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       mainAxisSize: MainAxisSize.min,
-                      spacing: 1,
+                      spacing: 1.w,
                       children: [
                         Checkbox(
                           activeColor: AppColors.primary,
@@ -69,9 +59,8 @@ class _SignInPageState extends State<SignInPage> {
                           "Remember me",
                           style: TextStyle(
                             color: AppColors.textLightColor,
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             fontWeight: FontWeight.w500,
-                            fontFamily: "inter",
                           ),
                         ),
                       ],
@@ -80,37 +69,24 @@ class _SignInPageState extends State<SignInPage> {
                       "Forgot Password?",
                       style: TextStyle(
                         color: AppColors.primary,
-                        fontSize: 16,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.w500,
-                        fontFamily: "inter",
                       ),
                     ),
                   ],
                 ),
-                Vertical(8),
+                Vertical(8.h),
                 AppButton(text: "Login", onClick: () {}),
-                Vertical(10),
-                Row(
-                  children: [
-                    Expanded(child: Container(height: 1, color: AppColors.textLightColor)),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: Text(
-                        "Or sign in with",
-                        style: TextStyle(color: AppColors.textLightColor),
-                      ),
-                    ),
-                    Expanded(child: Container(height: 1, color: AppColors.textLightColor)),
-                  ],
-                ),
-                Vertical(10),
+                Vertical(10.h),
+                AuthSeparator(),
+                Vertical(10.h),
                 AuthButtons(
-                  width: width,
                   onGoogleButtonClicked: () {},
                   onFacebookButtonClicked: () {},
                   onAppleButtonClicked: () {},
                 ),
-                Vertical(10),
+                Vertical(10.h),
+                SignInAndUpBottomSection(),
               ],
             ),
           ),
