@@ -2,6 +2,8 @@
 
 ## Implementation of an appointment app without a backend integration.
 
+### Project status : Unfinished.
+
 Feel free to clone and reuse the app's components. This project is a piece of a complete public portfolio of my work and a full display of my skills in the Flutter Framework.
 
 ### Note: I don't own the design, & the Figma project link will be included later in this readme.
