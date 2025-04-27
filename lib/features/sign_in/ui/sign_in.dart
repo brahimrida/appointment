@@ -31,10 +31,10 @@ class _SignInPageState extends State<SignInPage> {
               spacing: 9.h,
               children: [
                 Vertical(80.h),
-                Row(children: [Text("Welcome Back", style: TextStyles.blueHeading)]),
+                Row(children: [Text("Welcome Back", style: TextStyles.primaryColorBold24px)]),
                 Text(
                   "We're excited to have you back, can't wait to see what you've been up to since you last logged in.",
-                  style: TextStyles.regular14,
+                  style: TextStyles.secondaryColorRegular14px,
                 ),
                 Vertical(18.h),
                 FormTextField(label: "Email", type: TextInputType.emailAddress),

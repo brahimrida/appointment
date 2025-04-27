@@ -1,4 +1,4 @@
-import 'package:appointment/features/sign_in/ui/sign_in.dart';
+import 'package:appointment/features/onboarding/on_boarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(scaffoldBackgroundColor: Colors.white, fontFamily: "Inter"),
         debugShowCheckedModeBanner: false,
-        home: Scaffold(body: SignInPage()),
+        home: Scaffold(body: OnBoarding()),
       ),
     );
   }

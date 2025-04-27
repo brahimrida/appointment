@@ -63,13 +63,13 @@ class _SignInAndUpBottomSectionState extends State<SignInAndUpBottomSection> {
               TextSpan(
                 text: 'Terms & Conditions ',
                 recognizer: _termsTap,
-                style: TextStyles.darkBold14,
+                style: TextStyles.secondaryColorDarkBold14px,
               ),
               TextSpan(text: 'and ', style: TextStyles.regularLight14),
               TextSpan(
                 text: 'PrivacyPolicy.',
                 recognizer: _privacyTap,
-                style: TextStyles.darkBold14,
+                style: TextStyles.secondaryColorDarkBold14px,
               ),
             ],
           ),
@@ -78,12 +78,12 @@ class _SignInAndUpBottomSectionState extends State<SignInAndUpBottomSection> {
         RichText(
           text: TextSpan(
             text: 'Already have an account yet? ',
-            style: TextStyles.darkRegular12,
+            style: TextStyles.secondaryColorDarkRegular12px,
             children: <TextSpan>[
               TextSpan(
                 text: 'Sign Up',
                 recognizer: _signUpTap,
-                style: TextStyles.darkRegular12.copyWith(
+                style: TextStyles.secondaryColorDarkRegular12px.copyWith(
                   color: AppColors.primary,
                   fontWeight: FontWeight.bold,
                 ),

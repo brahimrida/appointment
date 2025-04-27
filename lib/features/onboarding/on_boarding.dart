@@ -1,5 +1,10 @@
-import 'package:appointment/features/onboarding/widgets/bottom_section.dart';
+import 'package:appointment/features/onboarding/widgets/doctor.dart';
+import 'package:appointment/features/sign_in/ui/sign_in.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../core/theming/styles.dart';
+import '../../core/widgets/app_button.dart';
 
 class OnBoarding extends StatelessWidget {
   const OnBoarding({super.key});
@@ -9,31 +14,26 @@ class OnBoarding extends StatelessWidget {
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
       body: SafeArea(
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Align(
-              alignment: Alignment.center,
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 9,
-                    child: Image.asset("assets/images/logo.png", width: size.width * 2),
-                  ),
-                  Expanded(flex: 2, child: SizedBox.shrink()),
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Vertical(30.h),
+              Image.asset("assets/images/full-logo.png", width: size.width * 0.4),
+              Vertical(40.h),
+              Doctor(),
+              SizedBox(
+                width: 312.w,
+                child: Text(
+                  textAlign: TextAlign.center,
+                  "Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.",
+                  style: TextStyles.secondaryColorRegular12px,
+                ),
               ),
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Image.asset("assets/images/doctor.png", width: size.width * 1.2),
-            ),
-            Positioned(
-              top: 54,
-              child: Image.asset("assets/images/full-logo.png", width: size.width * 0.4),
-            ),
-            BottomOnboardingSection(h: size.height, w: size.width),
-          ],
+              Vertical(30.h),
+              AppButton(text: "Get Started", onClick: () {}),
+              Vertical(50.h),
+            ],
+          ),
         ),
       ),
     );
