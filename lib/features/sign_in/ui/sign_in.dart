@@ -2,8 +2,8 @@ import 'package:appointment/core/widgets/auth_separator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/theming/colors.dart';
-import '../../../core/theming/styles.dart';
+import '../../../core/theming/app_colors.dart';
+import '../../../core/theming/text_styles.dart';
 import '../../../core/widgets/app_button.dart';
 import '../../../core/widgets/auth_buttons.dart';
 import '../../../core/widgets/form_field.dart';
