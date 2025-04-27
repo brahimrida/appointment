@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'colors.dart';
+import 'app_colors.dart';
 
 class TextStyles {
   static final TextStyle primaryColorBold24px = TextStyle(

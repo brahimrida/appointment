@@ -2,8 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../theming/colors.dart';
-import '../theming/styles.dart';
+import '../theming/app_colors.dart';
+import '../theming/text_styles.dart';
 
 class SignInAndUpBottomSection extends StatefulWidget {
   const SignInAndUpBottomSection({super.key});
