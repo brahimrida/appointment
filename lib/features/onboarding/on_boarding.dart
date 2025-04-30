@@ -1,3 +1,4 @@
+import 'package:appointment/core/routing/routes.dart';
 import 'package:appointment/features/onboarding/widgets/doctor_with_heading.dart';
 import 'package:appointment/features/sign_in/ui/sign_in.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,15 @@ class OnBoardingPage extends StatelessWidget {
                 ],
               ),
             ),
-            Positioned(bottom: 20.h, child: AppButton(text: "Get Started", onClick: () {})),
+            Positioned(
+              bottom: 20.h,
+              child: AppButton(
+                text: "Get Started",
+                onClick: () {
+                  Navigator.pushReplacementNamed(context, AppRoutes.signIn);
+                },
+              ),
+            ),
           ],
         ),
       ),
