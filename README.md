@@ -14,10 +14,8 @@ For any adjustments to this UI, Firebase/custom back-end integration, or even a 
 
 ### Email : dev.brahimrida@outlook.com 
 
-## onboarding screenshot
+## implemented screens screenshots
 
-![Image](https://github.com/user-attachments/assets/73b11603-aa88-45cd-94a0-c9e11007e916)
+![Image](https://github.com/user-attachments/assets/73b11603-aa88-45cd-94a0-c9e11007e916) ![Image](https://github.com/user-attachments/assets/71b7904f-4c30-404b-b470-e6bda3eebef9)
 
-## sign-in screenshot
 
-![Image](https://github.com/user-attachments/assets/71b7904f-4c30-404b-b470-e6bda3eebef9)
