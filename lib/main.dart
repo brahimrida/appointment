@@ -20,7 +20,7 @@ class MainApp extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(scaffoldBackgroundColor: Colors.white, fontFamily: "Inter"),
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.onboarding,
+        initialRoute: AppRoutes.signIn,
         onGenerateRoute: router.getRoute,
         // home: Scaffold(body: OnBoardingPage()),
       ),
