@@ -18,6 +18,17 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   bool _rememberMe = false;
+  final TextEditingController _emailCont = TextEditingController();
+  final TextEditingController _passwordCont = TextEditingController();
+
+  void _grabAndVerifyValues() {
+    String email = _emailCont.text;
+    String password = _passwordCont.text;
+    print("email field: $email");
+    print("pass field: $password");
+  }
+
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -37,46 +48,87 @@ class _SignInPageState extends State<SignInPage> {
                   style: TextStyles.secondaryColorRegular14px,
                 ),
                 Vertical(18.h),
-                FormTextField(label: "Email", type: TextInputType.emailAddress),
-                Vertical(2.h),
-                FormTextField(label: "Password", type: TextInputType.text, confidential: true),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      spacing: 1.w,
-                      children: [
-                        Checkbox(
-                          activeColor: AppColors.primary,
-                          side: BorderSide(color: AppColors.borderColor, width: 3),
-                          value: _rememberMe,
-                          onChanged: (v) {
-                            setState(() => _rememberMe = v!);
-                          },
-                        ),
-                        Text(
-                          "Remember me",
-                          style: TextStyle(
-                            color: AppColors.textLightColor,
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Text(
-                      "Forgot Password?",
-                      style: TextStyle(
-                        color: AppColors.primary,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
+                Form(
+                  key: _formKey,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  child: Column(
+                    children: [
+                      FormTextField(
+                        validator: (v) {
+                          if (v == null || v.trim().isEmpty) {
+                            // needs more logic like some regex
+                            return "E-mail required";
+                          }
+                          return null;
+                        },
+                        label: "Email",
+                        type: TextInputType.emailAddress,
+                        controller: _emailCont,
                       ),
-                    ),
-                  ],
+                      Vertical(11.h),
+                      FormTextField(
+                        validator: (v) {
+                          if (v == null || v.trim().isEmpty) {
+                            // needs more logic like some regex
+                            return "Password required";
+                          } else if (v.trim().length < 12) {
+                            return "Password must be at least 12 characters";
+                          }
+                          return null;
+                        },
+                        label: "Password",
+                        type: TextInputType.text,
+                        confidential: true,
+                        controller: _passwordCont,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            spacing: 1.w,
+                            children: [
+                              Checkbox(
+                                activeColor: AppColors.primary,
+                                side: BorderSide(color: AppColors.borderColor, width: 3),
+                                value: _rememberMe,
+                                onChanged: (v) {
+                                  setState(() => _rememberMe = v!);
+                                },
+                              ),
+                              Text(
+                                "Remember me",
+                                style: TextStyle(
+                                  color: AppColors.textLightColor,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Text(
+                            "Forgot Password?",
+                            style: TextStyle(
+                              color: AppColors.primary,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Vertical(8.h),
+                      AppButton(
+                        text: "Login",
+                        onClick: () {
+                          if (_formKey.currentState!.validate()) {
+                            print("input is correct proceed with server validation");
+                          }
+                        },
+                      ),
+                    ],
+                  ),
                 ),
-                Vertical(8.h),
-                AppButton(text: "Login", onClick: () {}),
+
                 Vertical(10.h),
                 AuthSeparator(),
                 Vertical(10.h),
