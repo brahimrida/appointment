@@ -69,6 +69,7 @@ class _FormTextFieldState extends State<FormTextField> {
 
               filled: true,
               fillColor: AppColors.textFieldBackgroundColor,
+              focusedErrorBorder: _outlineInputErrorBorder,
               focusedBorder: _outlineInputFocusBorder,
               errorBorder: _outlineInputErrorBorder,
               enabledBorder: _outlineInputBorder,
@@ -95,6 +96,7 @@ class _FormTextFieldState extends State<FormTextField> {
             decoration: InputDecoration(
               filled: true,
               fillColor: AppColors.textFieldBackgroundColor,
+              focusedErrorBorder: _outlineInputErrorBorder,
               focusedBorder: _outlineInputFocusBorder,
               errorBorder: _outlineInputErrorBorder,
               enabledBorder: _outlineInputBorder,
