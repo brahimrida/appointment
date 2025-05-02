@@ -30,18 +30,17 @@ class _SignUpPageState extends State<SignUpPage> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.only(left: 30, right: 30, top: 50),
           child: SingleChildScrollView(
             child: Column(
-              spacing: 9.h,
+              spacing: 10.h,
               children: [
-                Vertical(80.h),
                 Row(children: [Text("Create Account", style: TextStyles.primaryColorBold24px)]),
                 Text(
                   "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!",
                   style: TextStyles.secondaryColorRegular14px,
                 ),
-                Vertical(18.h),
+                Vertical(9.h),
                 Form(
                   key: _formKey,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -59,7 +58,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         type: TextInputType.emailAddress,
                         controller: _emailCont,
                       ),
-                      Vertical(11.h),
+                      Vertical(16.h),
                       FormTextField(
                         validator: (v) {
                           if (v == null || v.trim().isEmpty) {
@@ -75,8 +74,11 @@ class _SignUpPageState extends State<SignUpPage> {
                         confidential: true,
                         controller: _passwordCont,
                       ),
-                      Vertical(11.h),
+                      Vertical(16.h),
                       FormNumberTextField(
+                        getSelectionData: (e) {
+                          print(e.code);
+                        },
                         label: "Your number",
                         controller: _phoneNumberCont,
                         validator: (v) {
@@ -87,7 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           return null;
                         },
                       ),
-                      Vertical(8.h),
+                      Vertical(32.h),
                       AppButton(
                         text: "Create Account",
                         onClick: () {
@@ -100,15 +102,15 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
 
-                Vertical(10.h),
+                Vertical(36.h),
                 AuthSeparator(),
-                Vertical(10.h),
+                Vertical(22.h),
                 AuthButtons(
                   onGoogleButtonClicked: () {},
                   onFacebookButtonClicked: () {},
                   onAppleButtonClicked: () {},
                 ),
-                Vertical(10.h),
+                Vertical(22.h),
                 SignInAndUpBottomSection(),
               ],
             ),

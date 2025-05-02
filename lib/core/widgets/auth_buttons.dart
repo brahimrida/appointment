@@ -16,7 +16,7 @@ class AuthButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      spacing: 28.w,
+      spacing: 32.w,
       children: [
         InkWell(
           onTap: onGoogleButtonClicked,

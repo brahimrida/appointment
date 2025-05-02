@@ -52,7 +52,7 @@ class _SignInAndUpBottomSectionState extends State<SignInAndUpBottomSection> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 14.h,
+      spacing: 24.h,
       children: [
         RichText(
           textAlign: TextAlign.center,
