@@ -76,6 +76,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       Vertical(16.h),
                       FormNumberTextField(
+                        autoFillCode: false,
                         getSelectionData: (e) {
                           print(e.code);
                         },

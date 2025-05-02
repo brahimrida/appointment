@@ -11,6 +11,7 @@ class FormNumberTextField extends StatefulWidget {
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final Function(Country)? getSelectionData;
+  final bool autoFillCode;
 
   const FormNumberTextField({
     super.key,
@@ -18,6 +19,7 @@ class FormNumberTextField extends StatefulWidget {
     required this.controller,
     required this.validator,
     this.getSelectionData,
+    this.autoFillCode = true,
   });
 
   @override
@@ -40,27 +42,22 @@ class _FormTextFieldState extends State<FormNumberTextField> {
     borderRadius: BorderRadius.circular(15),
   );
 
-  bool _error = false;
+  // String? middleValidator(String? s) {
+  //   String? res = widget.validator?.call(s ?? '');
+  //   if (res != null) {
+  //     return res;
+  //   } else {
+  //     return res;
+  //   }
+  //
+  // }
 
-  String? middleValidator(String? s) {
-    String? res = widget.validator?.call(s ?? '');
-    if (res != null) {
-      _fixStack();
-    } else {
-      _backToNormal();
-    }
-    return res;
-  }
-
-  void _fixStack() {
+  void middleSelectionData(Country country) {
+    widget.getSelectionData!(country);
+    if (!widget.autoFillCode) return;
     setState(() {
-      _error = true;
-    });
-  }
-
-  void _backToNormal() {
-    setState(() {
-      _error = false;
+      widget.controller.clear();
+      widget.controller.text = country.code;
     });
   }
 
@@ -68,45 +65,39 @@ class _FormTextFieldState extends State<FormNumberTextField> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 327.w,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          TextFormField(
-            validator: middleValidator,
-            controller: widget.controller,
-            style: TextStyles.secondaryColorDarkExtraRegular14px,
-            autocorrect: false,
-            keyboardType: TextInputType.phone,
-            decoration: InputDecoration(
-              focusedErrorBorder: _outlineInputErrorBorder,
-              prefix: SizedBox(width: 60.w, height: 14.h),
-              filled: true,
-              fillColor: AppColors.textFieldBackgroundColor,
-              focusedBorder: _outlineInputFocusBorder,
-              errorBorder: _outlineInputErrorBorder,
-              enabledBorder: _outlineInputBorder,
-              // contentPadding: EdgeInsets.only(left: 40.w,bottom: 17.h , top: 17.h),
-              contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 17.h),
-              hintText: widget.label,
-              hintStyle: TextStyle(
-                color: AppColors.textLightColor,
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w500,
-                fontFamily: "inter",
-              ),
-            ),
-          ),
-          Positioned(
-            top: _error ? 14.h : null,
-            left: 20.w,
+      child: TextFormField(
+        validator: widget.validator,
+        controller: widget.controller,
+        style: TextStyles.secondaryColorDarkExtraRegular14px,
+        autocorrect: false,
+        keyboardType: TextInputType.phone,
+        decoration: InputDecoration(
+          focusedErrorBorder: _outlineInputErrorBorder,
+          prefixIconConstraints: BoxConstraints(minWidth: 0, minHeight: 0),
+          prefixIcon: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                CountryCodePicker(getSelectionData: widget.getSelectionData),
+                CountryCodePicker(getSelectionData: middleSelectionData),
                 Container(width: 1.w, height: 14.h, color: AppColors.textLightColor),
               ],
             ),
           ),
-        ],
+          filled: true,
+          fillColor: AppColors.textFieldBackgroundColor,
+          focusedBorder: _outlineInputFocusBorder,
+          errorBorder: _outlineInputErrorBorder,
+          enabledBorder: _outlineInputBorder,
+          contentPadding: EdgeInsets.symmetric(vertical: 17.h),
+          hintText: widget.label,
+          hintStyle: TextStyle(
+            color: AppColors.textLightColor,
+            fontSize: 14.sp,
+            fontWeight: FontWeight.w500,
+            fontFamily: "inter",
+          ),
+        ),
       ),
     );
   }

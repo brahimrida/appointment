@@ -32,6 +32,8 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+/lib/features/sign_up/ui/widgets/country_code_picker.dart
+/lib/features/sign_up/data/
 
 # Symbolication related
 app.*.symbols
