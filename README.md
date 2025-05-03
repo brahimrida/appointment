@@ -17,6 +17,6 @@ For any adjustments to this UI, Firebase/custom back-end integration, or even a 
 ## implemented screens screenshots
 
 ![Image](https://github.com/user-attachments/assets/73b11603-aa88-45cd-94a0-c9e11007e916) ![Image](https://github.com/user-attachments/assets/71b7904f-4c30-404b-b470-e6bda3eebef9)
-![Image](https://github.com/user-attachments/assets/534afcc1-f034-4ed9-ac16-5855c04cbc8c)
+![Image](https://github.com/user-attachments/assets/534afcc1-f034-4ed9-ac16-5855c04cbc8c) ![Image](https://github.com/user-attachments/assets/bf1ef566-a120-4a96-bb56-ec96df4733fc)
 
 
