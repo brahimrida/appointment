@@ -7,6 +7,11 @@ import '../../../../core/theming/text_styles.dart';
 class DoctorSpecialitySection extends StatelessWidget {
   const DoctorSpecialitySection({super.key});
 
+  void _seeAll() {
+    // navigate from here
+    print("navigate");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,7 +22,10 @@ class DoctorSpecialitySection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text("Doctor Speciality", style: TextStyles.appSectionHeadingSemiBold18px),
-            Text("See All", style: TextStyles.primaryColorRegular12px),
+            InkWell(
+              onTap: _seeAll,
+              child: Text("See All", style: TextStyles.primaryColorRegular12px),
+            ),
           ],
         ),
 
