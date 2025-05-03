@@ -1,3 +1,4 @@
+import 'package:appointment/features/home/ui/home_page.dart';
 import 'package:appointment/features/sign_in/ui/sign_in.dart';
 import 'package:appointment/features/sign_up/ui/sign_up.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,8 @@ class RoutesResolver {
         return MaterialPageRoute(builder: (_) => const SignInPage());
       case '/sign-up':
         return MaterialPageRoute(builder: (_) => const SignUpPage());
+      case '/home':
+        return MaterialPageRoute(builder: (_) => const HomePage());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(body: Center(child: Text("404 Not Found"))),

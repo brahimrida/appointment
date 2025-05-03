@@ -30,14 +30,30 @@ class TextStyles {
     fontSize: 14.sp,
     color: AppColors.textDarkColor,
   );
+  static final TextStyle secondaryColorExtraRegular12px = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 12.sp,
+    color: AppColors.secondary,
+  );
   static final TextStyle secondaryColorRegular12px = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 12.sp,
     color: AppColors.secondary,
   );
+  static final TextStyle primaryColorRegular12px = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 12.sp,
+    color: AppColors.primary,
+  );
   static final TextStyle secondaryColorDarkBold14px = TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: 14.sp,
+    color: AppColors.textDarkColor,
+  );
+
+  static final TextStyle appSectionHeadingSemiBold18px = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 18.sp,
     color: AppColors.textDarkColor,
   );
 }
